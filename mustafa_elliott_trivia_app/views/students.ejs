@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    
+loadData()
+    
+    $('.title').on('click', function () {
+      $('.tab').hide();
+      $('#edit').show();
+    })
+
+    $('body').on('click', '.title', function () {
+      let reg_no = $(this).attr('reg-no');
+      console.log('regno >>',reg_no)
+      $('.regno').val(reg_no);
+      $('#list').hide()
+      $.ajax({
+        url: '/students/edit',
+        method: 'GET',
+        data: {
+          'regid': reg_no
+        }
+      }).then(function (res) {
+        M.updateTextFields();
+
+        $('#edit').html(res);
+      })
+
+    })
+
+
+    $('body').on('click', '#save', function () {
+      
+      console.log('from the ejs: ',$("#objid").attr('objid'))
+
+      let updated_values = {
+        id : $("#objid").attr('objid'),
+        reg: $('.regno').val(),
+        name: $('#first_name').val(),
+        section: $('#section').val(),
+        semester: $('#semester').val()
+      }
+      // console.log(updated_values)
+
+
+      $.ajax({
+        url: '/students/save',
+        method: 'POST',
+        data: {
+          id : $("#objid").attr('objid'),
+          reg: $('.regno').val(),
+          name: $('#first_name').val(),
+          section: $('#section').val(),
+          semester: $('#semester').val()
+        },
+
+      }).then(function () {
+        $.ajax({
+      url: '/students/list',
+    }).then(function (rest) {
+      $('#list').html(rest)
+      $('#list').show();
+      $('form').html("")
+      ;
+    })
+
+
+      })
+    })
+
+    $('body').on('click', '#back', function () {
+      $('#list').show();
+      $('#edit').show();
+    })
+
+
+  })
+
+  function loadData() {
+
+    $.ajax({
+      url: '/students/list',
+    }).then(function (rest) {
+      $('#list').html(rest)
+      $('form').html("");
+    })
+
+
+  }
+</script>
+
+
+<body>
+  <header>
+    <%- include( './partials/nav.ejs') %>
+
+  </header>
+  <main>
+    <!-- <h1><%=title%></h1> -->
+
+      <div id="list">
+
+      </div>
+
+    <!-- Modal Structure -->
+
+    <div id="edit" class="container">
+
+    </div>
+
+  </main>
+  <footer>
+
+    <%- include( './partials/footer.ejs') %>
+
+  </footer>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,32 @@
+
+<div class="row container">            
+    <table class=tab> 
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Reg. Number</th>
+              <th>Semester</th>
+              <th>Section</th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+          <%  if(students.length>0){ %>
+          <% students.forEach(function (student) {  %>        
+
+          <tr>
+
+            <td><a href="#" class='title' reg-no='<%=student._id%>'><%=student.name%></a></td>
+            <td ><%=student.reg%></td>
+            <td><%=student.semester%></td>
+            <td><%=student.section%></td>          
+
+          </tr>
+          <% })} else{ console.log('Error')} %>                   
+
+          <!-- <%  %>                    -->
+
+        </tbody>
+      </table>
+    </div> 
