@@ -5,68 +5,46 @@
   <li><a href="#!">Change Password</a></li>
 </ul>
 <nav>
-        <div class="nav-wrapper light-blue accent-3" style="padding-left:20px;padding-right:20px">
-            <a href="/" class="brand-logo">LMS <%=title %> </a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="/edit-profile">Edit Profile</a></li>
-              <li><a href="/change-password">Change Password</a></li>
-                <li><a href="/fine">Fine</a></li>
-                <li><a href="/return">Return</a></li>
-                <li><a href="/logout">Logout</a></li>
+  <div class="nav-wrapper light-blue accent-3" style="padding-left:20px;padding-right:20px">
+    <a href="/" class="brand-logo">LMS <%=title %> </a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/edit-profile">Edit Profile</a></li>
+      <li><a href="/change-password">Change Password</a></li>
+      <li><a href="/fine">Fine</a></li>
+      <li><a href="/return">Return</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav light-blue accent-3" id="mobile-demo">
+  <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i
+        class="material-icons right">arrow_drop_down</i></a></li>
+  <li><a href="/book-search">Book Search</a></li>
+  <li><a href="/edit-profile">Edit Profile</a></li>
+  <li><a href="/change-password">Change Password</a></li>
+  <li><a href="/return">Return</a></li>
+  <li><a href="/logout">Logout</a></li>
+
+</ul>
 
 
-            </ul>
-        </div>
-    </nav>
-
-  <ul class="sidenav light-blue accent-3" id="mobile-demo">
-    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>    <li><a href="/book-search">Book Search</a></li>
-    <li><a href="/edit-profile">Edit Profile</a></li>
-    <li><a href="/change-password">Change Password</a></li>
-    <li><a href="/return">Return</a></li>
-    <li><a href="/logout">Logout</a></li>
-
-  </ul>
-
-
-  <!-- <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
-  </ul> -->
-
-  <script>
-$(document).ready(function(){
+<script>
+  $(document).ready(function () {
     $('.sidenav').sidenav();
     $(".dropdown-trigger").dropdown();
 
   });
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
   });
+</script>
 
-  </script>
-          
-  
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-                    
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
