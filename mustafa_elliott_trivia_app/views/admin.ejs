@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+
+<body style="padding-left: 0px;">
+    <header>
+        <%- include( './partials/nav-admin.ejs') %>
+
+    </header>
+    <main>
+        <!-- <h1><%=title%></h1> -->
+
+        <div class="row">
+
+            <div class="col 2s">
+                <div class="collection"  style="height: 100%; width: 300px; padding: 0px;">
+                    <h6 class="collection-item">Book Dashboard</h6>
+                    <a href="#!" class="collection-item">View All Books</a>
+                    <a href="#!" class="collection-item">Add Book</a>
+                    <a href="#!" class="collection-item">Modify Book</a>
+                    <a href="#!" class="collection-item">Delete Book</a>
+                
+                    <h6 class="collection-item">Member Dashboard</h6>
+                    <a href="#!" class="collection-item">View Member</a>
+                    <a href="#!" class="collection-item">Add Modify Member</a>
+                    <a href="#!" class="collection-item">Modify Block Member</a>
+                
+                    <h6 class="collection-item">Issuance Dashboard</h6>
+                    <a href="#!" class="collection-item">View Issuances</a>
+                    <a href="#!" class="collection-item">Issue Book</a>
+                    <a href="#!" class="collection-item">Return Book</a>
+                </div>
+
+                
+                
+
+            </div>
+            <div class="container">
+
+                <center>
+                    <div class="col 10s" style="padding-left: 100px;">
+
+                        <h2 class="center-align">Profile Information</h2>
+                        <hr>
+                        <div class="container" style="border: solid 1px; border-radius: 25px; width: 100%;">
+                            <table class="center-align">
+
+
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h5>Name</h5>
+                                        </td>
+                                        <td>Syed Mustafa Imam</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>Address</h5>
+                                        </td>
+                                        <td>House No. A-55 Block E North Nazimabad</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>City</h5>
+                                        </td>
+                                        <td>Karachi</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>Country</h5>
+                                        </td>
+                                        <td>Pakistan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </center>
+
+            </div>
+
+
+        </div>
+
+    </main>
+    <footer>
+
+        <%- include( './partials/footer.ejs') %>
+
+    </footer>
+
+
+</body>
+
+</html>
