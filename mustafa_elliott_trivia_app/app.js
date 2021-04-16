@@ -12,6 +12,8 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 //mongoose db connection here
+mongoose.set('useFindAndModify', false);
+
 mongoose.connect("mongodb+srv://trivia:abc.123@cluster0.36cr6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true})
 .then(()=>{
   console.log("Connected to the database");
