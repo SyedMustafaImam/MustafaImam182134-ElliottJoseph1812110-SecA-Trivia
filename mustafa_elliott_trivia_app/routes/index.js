@@ -5,6 +5,5 @@ let router = express.Router();
 router.get('/admin', index_controller.admin);
 router.get('/member', index_controller.member);
 
-// router.use(index_controller.error)
 
 module.exports = router;

@@ -10,4 +10,3 @@ router.get('/update-book/:id',book_controller.update_book)
 router.put('/:id/updatebook_post', book_controller.bookupdate_post)
 router.post('/:id/delete', book_controller.book_delete)
 module.exports = router;
-// add-newbook

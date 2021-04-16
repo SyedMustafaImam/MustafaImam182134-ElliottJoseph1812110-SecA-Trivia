@@ -1,7 +1,6 @@
 const { Book } = require('../models/index');
 const db=require('../models/index');
 
-//this function will perform the insert operation
 let bookid=0;
 
 
