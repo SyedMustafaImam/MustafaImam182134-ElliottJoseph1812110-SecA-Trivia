@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+
+<body style="padding-left: 0px;">
+    <header>
+        <%- include( './partials/nav-admin.ejs') %>
+
+    </header>
+    <main>
+        <!-- <h1><%=title%></h1> -->
+
+        <div class="row">
+
+            <div class="col 2s">
+                <%- include('./partials/dashboard.ejs') %> 
+
+                                         
+            </div>
+            <div class="container">
+
+                <center>
+                    <div class="col 10s" style="padding-left: 100px;">
+
+                        <h2 class="center-align">Profile Information</h2>
+                        <hr>
+                        <div class="container" style="border: solid 1px; border-radius: 25px; width: 100%;">
+                            <table class="center-align">
+
+
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h5>Name</h5>
+                                        </td>
+                                        <td>Syed Mustafa Imam</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>Address</h5>
+                                        </td>
+                                        <td>House No. A-55 Block E North Nazimabad</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>City</h5>
+                                        </td>
+                                        <td>Karachi</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>Country</h5>
+                                        </td>
+                                        <td>Pakistan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </center>
+
+            </div>
+
+
+        </div>
+
+    </main>
+    <footer>
+
+        <%- include( './partials/footer.ejs') %>
+
+    </footer>
+
+
+</body>
+
+</html>
