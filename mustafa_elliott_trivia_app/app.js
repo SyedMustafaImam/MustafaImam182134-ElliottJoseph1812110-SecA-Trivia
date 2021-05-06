@@ -7,12 +7,12 @@ var mongoose = require('mongoose');
 var session = require('express-session')
 
 var indexRouter = require('./routes/index');
-<<<<<<< HEAD
+
 var usersRouter = require('./routes/users');
-=======
+
 var adminRouter = require('./routes/admin');
 var issuance=require('./routes/issuance');
->>>>>>> dadc570418f890ee674c80f9b7df9e798bbb0ee1
+
 
 var app = express();
 
@@ -51,15 +51,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-<<<<<<< HEAD
+
 app.use('/index', indexRouter);
 app.use('/',usersRouter)
-=======
+
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
 app.use('/issuance',issuance)
->>>>>>> dadc570418f890ee674c80f9b7df9e798bbb0ee1
+
 
 app.use(function(req, res, next) {
   next(createError(404));
