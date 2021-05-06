@@ -16,7 +16,7 @@
     <style>
         body {
 		background-color: #ffffff;
-		background-image: url(/images/bg4_2.png);
+		/* background-image: url(/images/bg4_2.png); */
 }
 
 #SignupContent {
@@ -43,12 +43,12 @@
 				</md-toolbar>
 				<div layout-padding="">
 						<div></div>
-						<form name="RegistrationForm" method="POST" action="/signedup">
+						<form method="POST" action="/edit-profile">
 								
 								<div layout="row" layout-sm="column">
 										<md-input-container flex-gt-sm="">
 												<label>USERID</label>
-												<input ng-model="user.last_name" name="userid" required type="text" ng-pattern="/^[a-zA-Z'. -]+$/" >
+												<input ng-model="user.last_name" name="userid" placeholder="<%= user.userid %>" required type="text" ng-pattern="/^[a-zA-Z'. -]+$/" >
 												<div ng-if="userForm.first_name.$dirty" ng-messages="userForm.first_name.$error" role="alert">
 														<div ng-message="required" class="my-message">First Name is Required.</div>
 														<div ng-message="pattern" class="my-message">Enter correct First Name.</div>
@@ -65,7 +65,7 @@
 								<div layout="column" layout-sm="column">
 									<md-input-container flex-gt-sm="">
 												<label>Name</label>
-												<input ng-model="user.first_name" name="name" required type="text" ng-pattern="/^[a-zA-Z'. -]+$/" >
+												<input ng-model="user.first_name" name="name" placeholder="<%= session.username %>" required type="text" ng-pattern="/^[a-zA-Z'. -]+$/" >
 												<div ng-if="userForm.last_name.$dirty" ng-messages="userForm.last_name.$error" role="alert">
 														<div ng-message="required" class="my-message">Name is Required.</div>
 														<div ng-message="pattern" class="my-message">Enter correct Name.</div>
@@ -75,11 +75,11 @@
 										<input type="hidden" name="gender" value="{{user.gender}}" />
 										<md-radio-group style="margin: 12px 0 19px;" ng-model="user.gender" required>
 												<md-radio-button value="Male" class="md-primary">Male</md-radio-button>
-												<md-radio-button value="Female">Female</md-radio-button>
+												<md-radio-button value="Female" class="md-primary">Female</md-radio-button>
 										</md-radio-group>
 										<md-input-container flex-gt-sm="60">
 												<label>Address</label>
-												<input required type="text" step="any" name="address" />
+												<input required type="text" step="any" name="address" placeholder="<%= user.address %>" />
 												<div ng-if="userForm.age.$dirty" ng-messages="userForm.age.$error" role="alert" multiple>
 														<div ng-message="required">Address is Required.</div>
 														<div ng-message="min">Only Above 13 years Old are allowed.</div>
@@ -90,7 +90,7 @@
 								<div layout="row" layout-sm="column">
 										<md-input-container flex-gt-sm="">
 												<label>City</label>
-												<input required type="text" name="city"  ng-pattern="/^[_a-z0-9-+]+(\.[_a-z0-9-+]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" />
+												<input required type="text" name="city" placeholder="<%= user.city %>" ng-pattern="/^[_a-z0-9-+]+(\.[_a-z0-9-+]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" />
 												<div ng-if="userForm.email.$dirty" ng-messages="userForm.email.$error" role="alert">
 														<div ng-message="required" class="my-message">City is Required.</div>
 														<div ng-message="pattern" class="my-message">Enter Correct City. </div>

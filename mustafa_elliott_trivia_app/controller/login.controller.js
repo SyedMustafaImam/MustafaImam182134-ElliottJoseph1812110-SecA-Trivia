@@ -38,7 +38,17 @@ exports.edit_profile=(req,res)=>{
     console.log(req.session);
     db.Member.findOne({name: req.session.username}).then(users=>{
         console.log(users)
-        res.render('edit-profile', { title: 'Edit-Profile'})
+        console.log('edit_profile form')
+        res.render('edit-profile', { title: 'Edit-Profile',session: req.session, user: users })
+    }).catch(err=>console.log(err))
+}
+exports.edited_profile=async (req,res)=>{
+    console.log(req.body)
+    console.log(req.body.userid)
+    db.Member.updateOne({userid :req.body.userid},{$set:req.body}).then(result=>{
+      console.log('part where update is done ')
+      console.log(result)
+      res.redirect('/login')
     }).catch(err=>console.log(err))
 }
 exports.logout = (req, res) => {
@@ -52,9 +62,17 @@ exports.logout = (req, res) => {
     });
 }
 exports.redirectLogin=(req,res,next)=>{
-    if(!req.session.username){
-        res.redirect('/')
+    if(req.session.username){
+        console.log('got here')
+        db.Member.findOne({name:req.session.username}).then(user=>{
+            console.log(user)
+            req.session.username = user.name;
+            console.log(user.name)
+            console.log(req.session)
+            res.render('member', { title: 'MEMBERS', session: req.session, user: user })
+        })
+                
     }else{
-        next()
+        console.log(err)
     }
 }
