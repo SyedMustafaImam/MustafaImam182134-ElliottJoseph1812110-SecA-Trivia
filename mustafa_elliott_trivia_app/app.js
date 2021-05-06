@@ -8,12 +8,6 @@ var session = require('express-session')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// <<<<<<< HEAD
-// var issuance=require('./routes/issuance')
-// =======
-// var adminRouter = require('./routes/admin');
-
-// >>>>>>> ee63bb75641c0680805d0effb2f69e0d0d8d5160
 
 var app = express();
 
@@ -53,16 +47,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-// <<<<<<< HEAD
-// app.use('/', usersRouter);
-// app.use('/issuance',issuance)
-// =======
-// app.use('/admin', adminRouter);
-// app.use('/users', usersRouter);
-// >>>>>>> ee63bb75641c0680805d0effb2f69e0d0d8d5160
 
-
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
