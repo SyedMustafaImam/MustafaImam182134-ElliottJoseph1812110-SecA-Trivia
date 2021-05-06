@@ -18,17 +18,18 @@ db.Member.findOne({userid:"admin",password:"Admin.123"})
 }
  
 exports.member = (req,res) => {
-    db.Member.findOne({userid:"admin",password:"Admin.123"})
-    .then(result=>{
-        res.render('memeber', {
-            title:"member",result:result
-        })
-        console.log(result)
+    // db.Member.findOne({userid:"admin",password:"Admin.123"})
+    // .then(result=>{
+    //     res.render('memeber', {
+    //         title:"member",result:result
+    //     })
+    //     console.log(result)
         
-    })
-    .catch(err=>{
-      console.log(err)
-    })
+    // })
+    // .catch(err=>{
+    //   console.log(err)
+    // })
+    res.render('member',{title:'member'})
 }
      
 
