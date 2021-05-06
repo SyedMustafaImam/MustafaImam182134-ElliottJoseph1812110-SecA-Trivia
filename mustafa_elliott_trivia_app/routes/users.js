@@ -6,5 +6,6 @@ router.get('/signup',signup_controller.register_form)
 router.post('/signedup',signup_controller.register)
 router.get('/',login_controller.login_form)
 router.post('/login',login_controller.loginchk)
+router.get('/edit-profile',login_controller.edit_profile)
 router.get('/logout',login_controller.logout)
 module.exports = router;

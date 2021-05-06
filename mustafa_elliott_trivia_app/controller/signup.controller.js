@@ -9,6 +9,7 @@ exports.register=(req,res)=>{
         userid:req.body.userid,
         password:req.body.password,
         name:req.body.name,
+        Gender:req.body.Gender,
         address:req.body.address,
         city:req.body.city,
         country:req.body.country,

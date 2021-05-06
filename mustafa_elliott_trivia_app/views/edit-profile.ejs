@@ -44,7 +44,7 @@
 				<div layout-padding="">
 						<div></div>
 						<form name="RegistrationForm" method="POST" action="/signedup">
-								<!-- <input type="hidden" name="action" value="signup"/> -->
+								
 								<div layout="row" layout-sm="column">
 										<md-input-container flex-gt-sm="">
 												<label>USERID</label>
@@ -72,10 +72,10 @@
 												</div>
 										</md-input-container>
 										<p style="font-size: 12px; margin-left: 3px; margin-top: 18px;">Gender: </p>
-										<input type="hidden" name="Gender" value="{{user.gender}}" />
+										<input type="hidden" name="gender" value="{{user.gender}}" />
 										<md-radio-group style="margin: 12px 0 19px;" ng-model="user.gender" required>
 												<md-radio-button value="Male" class="md-primary">Male</md-radio-button>
-												<md-radio-button value="Female"class="md-primary">Female</md-radio-button>
+												<md-radio-button value="Female">Female</md-radio-button>
 										</md-radio-group>
 										<md-input-container flex-gt-sm="60">
 												<label>Address</label>
@@ -109,7 +109,7 @@
 										</select>
 									</md-input-container>
 								</div>
-								<md-button class="md-raised md-primary" style="width:100%; margin: 0px 0px; background-color: #00b0ff;" type="submit">Submit</md-button>
+								<md-button class="md-raised md-primary" style="width:100%; margin: 0px 0px; background-color: #00b0ff;" type="submit" >Submit</md-button>
 								
 						</form>
 				</div>

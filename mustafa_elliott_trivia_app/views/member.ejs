@@ -4,74 +4,89 @@
 <%- include('./partials/head.ejs') %>
 
 
-<body>
-    <header>
-        <%- include( './partials/nav.ejs') %>
+    <body>
+        <header>
+            <%- include( './partials/nav.ejs' ) %>
 
-    </header>
-    <main>
-        <h1><%=title%></h1>
-
-        <div class="row">
+        </header>
+        <main>
+            
 
 
-            <div class="container center-align" style="align-items: center;  align-content: center">
+            <div class="row">
+                <div class="container center-align" style="align-items: center;  align-content: center">
 
-                <center>
-                    <div class="col 12s" style="align-items: center; align-content: center; padding-left: 25%; padding-top: 5%;">
+                    <center>
+                        <div class="col 12s" style="align-items: center; align-content: center; padding-left: 25%;">
 
-                        <h2 class="center-align">Profile Information</h2>
-                        <hr>
-                        <div class="container" style="border: solid 1px; border-radius: 25px; width: 100%;">
-                            <table class="center-align">
+                            <h2 class="center-align">Profile Information</h2>
+                            <hr>
+                            <div class="container" style="border: solid 1px; border-radius: 25px; width: 100%;">
+                                <table class="center-align">
 
 
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <h5>Name</h5>
-                                        </td>
-                                        <td><%= session.name></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h5>Address</h5>
-                                        </td>
-                                        <td><%= session.address></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h5>City</h5>
-                                        </td>
-                                        <td><%= session.city></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h5>Country</h5>
-                                        </td>
-                                        <td><%= session.country></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h5>Name</h5>
+                                            </td>
+                                            <td>
+                                                <%= session.username %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h5>Gender</h5>
+                                            </td>
+                                            <td>
+                                                <%= user.Gender %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h5>Address</h5>
+                                            </td>
+                                            <td>
+                                                <%= user.address %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h5>City</h5>
+                                            </td>
+                                            <td>
+                                                <%= user.city %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h5>Country</h5>
+                                            </td>
+                                            <td>
+                                                <%= user.country %>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
 
                         </div>
+                    </center>
 
-                    </div>
-                </center>
+                </div>
+
 
             </div>
 
+        </main>
+        <footer>
 
-        </div>
+            <%- include( './partials/footer.ejs' ) %>
 
-    </main>
-    <footer>
-
-        <%- include( './partials/footer.ejs') %>
-
-    </footer>
+        </footer>
 
 
-</body>
+    </body>
 
 </html>

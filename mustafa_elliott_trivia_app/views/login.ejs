@@ -16,7 +16,6 @@
     <style>
         body {
 		background-color: #ffffff;
-		background-image: url(/images/bg4_2.png);
 }
 
 #SignupContent {
@@ -45,7 +44,7 @@
 						<div></div>
 						<!-- ng-submit="user.submit(userForm.$valid)" enctype="multipart/form-data" -->
 						<form name="userForm" method="POST" action="/login">
-								<input type="hidden" name="action" value="signup" />
+								
 								<div layout="row" layout-sm="column">
 									<md-input-container flex-gt-sm="">
 										<label>USERID</label>
@@ -63,10 +62,11 @@
 												<div ng-if="userForm.password.$dirty" ng-messages="userForm.password.$error" role="alert" multiple>
 												</div>
 								</div>
-								<md-button class="md-raised md-primary" style="width:100%; margin: 0px 0px;background-color: #00b0ff;" type="submit"  name="submit">Login</md-button>
+								<md-button class="md-raised md-primary" style="width:100%; margin: auto; background-color: #00b0ff;" type="submit">Login</md-button>
 								
 						</form>
-						<a href="/signup"><md-button class="md-raised md-primary" style="width: 93%; margin: 0px 0px;background-color: #00b0ff;" type="submit"  name="submit">SignUp</md-button></a>
+						<a href="/signup"><md-button class="md-raised md-primary" style="width:93%; margin: auto; background-color: #00b0ff;" type="submit">SignUp</md-button></a>
+						
 				</div>
 		</md-content>
 </div>
