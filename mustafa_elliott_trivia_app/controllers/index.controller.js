@@ -1,6 +1,4 @@
 const express = require('express');
-let app = express();
-let router = express.Router();
 const db=require('../models/index')
 exports.admin = (req,res) => {
 db.Member.findOne({userid:"admin",password:"Admin.123"})
