@@ -10,16 +10,15 @@ exports.loginchk=(req,res)=>{
         db.Member.findOne({userid:userid, password:password},(err, user)=>{
             console.log(user)
             if(userid==="admin" && password==="Admin.123"){
-
                 console.log('admin here')
                 res.redirect('index/admin')
                 res.redirect('/admin')
-
             }
             else if(user===null){
                 res.end('User does not exist')
             }
             else if(user.userid===userid && user.password===password){
+                console.log('got here')
                 req.session.username=user.firstname;
                 res.render('member',{title:'members', session:req.session})                
             }else{

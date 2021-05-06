@@ -54,10 +54,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/index', indexRouter);
 app.use('/',usersRouter)
-
-app.use('/', indexRouter);
 app.use('/admin', adminRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 app.use('/issuance',issuance)
 
 
