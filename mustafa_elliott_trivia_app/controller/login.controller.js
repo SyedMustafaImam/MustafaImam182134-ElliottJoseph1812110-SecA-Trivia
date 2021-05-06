@@ -45,7 +45,7 @@ exports.edit_profile=(req,res)=>{
 exports.edited_profile=async (req,res)=>{
     console.log(req.body)
     console.log(req.body.userid)
-    db.Member.updateOne({userid :req.body.userid},{$set:req.body}).then(result=>{
+    await db.Member.updateOne({userid :req.body.userid},{$set:req.body}).then(result=>{
       console.log('part where update is done ')
       console.log(result)
       res.redirect('/login')
