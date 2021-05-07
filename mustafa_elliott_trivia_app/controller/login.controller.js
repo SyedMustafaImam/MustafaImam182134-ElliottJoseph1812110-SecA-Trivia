@@ -44,9 +44,10 @@ exports.edit_profile=(req,res)=>{
 }
 exports.edited_profile=async (req,res)=>{
     console.log(req.body)
-    console.log(req.body.userid)
+    console.log(req.body.name)
     await db.Member.updateOne({userid :req.body.userid},{$set:req.body}).then(result=>{
       console.log('part where update is done ')
+      req.session.username = req.body.name;
       console.log(result)
       res.redirect('/login')
     }).catch(err=>console.log(err))
@@ -61,12 +62,13 @@ exports.logout = (req, res) => {
         res.redirect('/')
     });
 }
-exports.redirectLogin=(req,res,next)=>{
+exports.redirectLogin=(req,res)=>{
+    console.log(req.session.username)
     if(req.session.username){
         console.log('got here')
         db.Member.findOne({name:req.session.username}).then(user=>{
+            console.log('findone done')
             console.log(user)
-            req.session.username = user.name;
             console.log(user.name)
             console.log(req.session)
             res.render('member', { title: 'MEMBERS', session: req.session, user: user })

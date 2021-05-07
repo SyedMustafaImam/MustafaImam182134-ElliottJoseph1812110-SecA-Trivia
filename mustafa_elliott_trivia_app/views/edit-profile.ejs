@@ -39,7 +39,7 @@
     <div ng-controller="DemoCtrl" ng-cloak="" class="md-inline-form" ng-app="MyApp" layout="column" layout-sm="row" layout-align="center center" layout-align-sm="start start" layout-fill>
 		<md-content id="SignupContent" class="md-whiteframe-10dp" flex-sm>
 				<md-toolbar flex id="materialToolbar">
-						<div class="md-toolbar-tools" style="background-color: #00b0ff;" > <span flex=""></span> <span class="md-headline" align="center">Sign Up Form</span> <span flex=""></span> </div>
+						<div class="md-toolbar-tools" style="background-color: #00b0ff;" > <span flex=""></span> <span class="md-headline" align="center"><%= title %></span> <span flex=""></span> </div>
 				</md-toolbar>
 				<div layout-padding="">
 						<div></div>
@@ -54,13 +54,7 @@
 														<div ng-message="pattern" class="my-message">Enter correct First Name.</div>
 												</div>
 										</md-input-container>
-										<md-input-container flex-gt-sm="">
-											<label>Password</label>
-											<input name="password" ng-model="user.password" type="password" minlength="8" maxlength="100" ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/" required >
-											<div ng-if="userForm.password.$dirty" ng-messages="userForm.password.$error" role="alert" multiple>
-													<div ng-message="required">Password is Required.</div>
-											</div>
-									</md-input-container>
+										
 								</div>
 								<div layout="column" layout-sm="column">
 									<md-input-container flex-gt-sm="">
