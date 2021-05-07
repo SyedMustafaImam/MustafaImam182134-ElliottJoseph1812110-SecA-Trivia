@@ -14,6 +14,7 @@ exports.loginchk = (req, res) => {
             // user.name='Admin';
             
             if (userid === "admin" && password === "Admin.1234567") {
+ 
                 console.log('admin here')
                 req.session.username = "Admin";
                 // console.log(user.name)
@@ -86,8 +87,8 @@ exports.redirectLogin=(req,res)=>{
     }
 }
 exports.change_password_form=(req,res)=>{
- 
+ res.render('Passwordform',{title:'ChangePassword'})
 }
 exports.changed_password=(req,res)=>{
-
+   
 }
