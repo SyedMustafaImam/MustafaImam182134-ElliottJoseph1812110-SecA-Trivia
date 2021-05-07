@@ -79,7 +79,7 @@ exports.redirectLogin=(req,res)=>{
     }
 }
 exports.change_password_form=(req,res)=>{
- 
+ res.render('Passwordform',{title:'ChangePassword'})
 }
 exports.changed_password=(req,res)=>{
 
