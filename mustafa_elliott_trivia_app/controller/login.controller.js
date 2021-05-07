@@ -7,14 +7,21 @@ exports.loginchk = (req, res) => {
     const { userid, password } = req.body;
     console.log(userid, "/", password);
     try {
+        req.session.name = "Admin";
+        req.session.gender = "Male";
+        
         db.Member.findOne({ userid: userid, password: password }, (err, user) => {
-            console.log(user)
-            if (userid === "admin" && password === "Admin.123") {
+            // user.name='Admin';
+            
+            if (userid === "admin" && password === "Admin.1234567") {
                 console.log('admin here')
-                req.session.username = user.name;
-                console.log(user.name)
+                req.session.username = "Admin";
+                // console.log(user.name)
+                req.session.password="Admin.1234567";
                 console.log(req.session)
-                res.render('admin', { title: 'ADMIN', session: req.session, user: user })
+                // res.render('admin', { title: 'ADMIN', session: req.session})
+        
+                res.redirect('index/admin')
             }
             else if (user === null) {
                 res.end('User does not exist')
