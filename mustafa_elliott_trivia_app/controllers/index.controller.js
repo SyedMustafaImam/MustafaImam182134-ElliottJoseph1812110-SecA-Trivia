@@ -1,17 +1,17 @@
-const express = require('express');
 const db=require('../models/index')
 exports.admin = (req,res) => {
 
+    console.log("we got here")
     console.log(req.session)
-
-    req.session.name = "Admin";
-    req.session.gender = "Male";
     
-    if(req.session.password==="Admin.1234567" && req.session.username==='Admin')
+//     req.session.name = "Admin";
+//     req.session.gender = "Male";
+    
+    if(req.session.user)
 {
     res.render('admin', {
         title:"Admin",
-        session: req.session,  
+        session: req.session.user,  
     })
 }else{
     res.render('error')
@@ -31,7 +31,19 @@ exports.member = (req,res) => {
     // .catch(err=>{
     //   console.log(err)
     // })
-    res.render('member',{title:'member'})
+    // res.render('member',{title:'member'})
+    console.log("Parameter",req.params)
+    console.log("we got here")
+    console.log(req.session)
+    if(req.session.user)
+{
+    res.render('member', {
+        title:"member",
+        session: req.session.user,  
+    })
+}else{
+    res.redirect('/')
+}
 }
      
 

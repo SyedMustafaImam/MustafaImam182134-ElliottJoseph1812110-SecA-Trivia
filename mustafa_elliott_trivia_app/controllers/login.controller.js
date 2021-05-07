@@ -7,34 +7,31 @@ exports.loginchk = (req, res) => {
     const { userid, password } = req.body;
     console.log(userid, "/", password);
     try {
-        req.session.name = "Admin";
-        req.session.gender = "Male";
-        
         db.Member.findOne({ userid: userid, password: password }, (err, user) => {
-            // user.name='Admin';
+            console.log("User",user)
+            // req.session.user= user;
+            // console.log("Session",req.session)
+            console.log(user.userid,"/",user.password)
+            if (user.userid === 'admin') {
             
-            if (userid === "admin" && password === "Admin.1234567") {
- 
                 console.log('admin here')
-                req.session.username = "Admin";
-                // console.log(user.name)
-                req.session.password="Admin.1234567";
-                console.log(req.session)
-                // res.render('admin', { title: 'ADMIN', session: req.session})
-        
+                req.session.user= user;
+                console.log("Session",req.session.user)
+                console.log(req.session.userid,"/",req.session.password)
                 res.redirect('index/admin')
             }
             else if (user === null) {
                 res.end('User does not exist')
             }
             else if (user.userid === userid && user.password === password) {
-                console.log('got here')
-                req.session.username = user.name;
-                console.log(user.name)
-                console.log(req.session)
-                res.render('member', { title: 'MEMBERS', session: req.session, user: user })
+                console.log('got here to members')
+                req.session.user= user;
+                console.log("Session",req.session.user)
+                console.log(req.session.user.userid,"/",req.session.user.password)
+                res.redirect('index/member/'+req.session.user.userid)
             } else {
-                res.end('Wrong credentials provided.');
+                // res.end('Wrong credentials provided.');
+                res.render('error');
             }
         })
 

@@ -3,7 +3,7 @@ const express = require('express');
 let router = express.Router();
 
 router.get('/admin', index_controller.admin);
-router.get('/member', index_controller.member);
+router.get('/member/:userid', index_controller.member);
 
 
 module.exports = router;

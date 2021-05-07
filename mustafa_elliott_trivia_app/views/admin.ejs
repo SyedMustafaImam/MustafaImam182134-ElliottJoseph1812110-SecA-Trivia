@@ -36,9 +36,9 @@
                                                 <h5>Name</h5>
                                             </td>
                                             <td>
-                                                <%= session.username %>
+                                                <%= session.name %>
                                             </td>
-                                            
+
                                         </tr>
                                         <tr>
                                         <tr>
@@ -46,27 +46,32 @@
                                                 <h5>Gender</h5>
                                             </td>
                                             <td>
-                                                <%= session.gender %>
+                                                <%= session.Gender %>
                                             </td>
-                                            
+
                                         </tr>
                                         <tr>
                                             <td>
                                                 <h5>Address</h5>
                                             </td>
-                                            <td>House No. A-55 Block E North Nazimabad </td>
+                                            <td>
+                                                <%= session.address %>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <h5>City</h5>
                                             </td>
-                                            <td> Karachi </td>
+                                            <td>
+                                                <%= session.city %>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <h5>Country</h5>
                                             </td>
-                                            <td>Pakistan</td>
+                                            <td>
+                                                <%= session.country %></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -88,7 +93,7 @@
 
         </footer>
 
-     <script src=""></script>
+        <script src=""></script>
     </body>
 
 </html>
