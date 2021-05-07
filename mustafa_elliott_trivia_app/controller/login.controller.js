@@ -78,3 +78,9 @@ exports.redirectLogin=(req,res)=>{
         console.log(err)
     }
 }
+exports.change_password_form=(req,res)=>{
+ 
+}
+exports.changed_password=(req,res)=>{
+
+}
