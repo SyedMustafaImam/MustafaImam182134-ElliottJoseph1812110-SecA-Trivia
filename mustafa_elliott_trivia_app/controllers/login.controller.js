@@ -9,7 +9,7 @@ exports.loginchk = (req, res) => {
     try {
         db.Member.findOne({ userid: userid, password: password }, (err, user) => {
             console.log(user)
-            if (userid === "admin" && password === "Admin.123") {
+            if (userid === "admin" && password === "Admin.456") {
                 console.log('admin here')
                 req.session.username = user.name;
                 console.log(user.name)
@@ -82,5 +82,5 @@ exports.change_password_form=(req,res)=>{
  res.render('Passwordform',{title:'ChangePassword'})
 }
 exports.changed_password=(req,res)=>{
-
+   
 }
