@@ -30,7 +30,6 @@ exports.loginchk = (req, res) => {
                 console.log(req.session.user.userid,"/",req.session.user.password)
                 res.redirect('index/member/'+req.session.user.userid)
             } else {
-                // res.end('Wrong credentials provided.');
                 res.render('error');
             }
         })
@@ -40,21 +39,21 @@ exports.loginchk = (req, res) => {
     }
 }
 exports.edit_profile=(req,res)=>{
-    console.log(req.session);
-    db.Member.findOne({name: req.session.username}).then(users=>{
+    console.log(req.params.userid);
+    db.Member.findOne({userid: req.params.userid}).then(users=>{
         console.log(users)
         console.log('edit_profile form')
-        res.render('edit-profile', { title: 'Edit-Profile',session: req.session, user: users })
+        res.render('edit-profile', { title: 'Edit-Profile',session: users})
     }).catch(err=>console.log(err))
-}
+}     
 exports.edited_profile=async (req,res)=>{
     console.log(req.body)
     console.log(req.body.name)
-    await db.Member.updateOne({userid :req.body.userid},{$set:req.body}).then(result=>{
+    console.log(req.params.userid)
+    await db.Member.updateOne({userid :req.params.userid},{$set:req.body}).then(result=>{
       console.log('part where update is done ')
-      req.session.username = req.body.name;
       console.log(result)
-      res.redirect('/login')
+      res.redirect('/index/member/'+req.body.userid)
     }).catch(err=>console.log(err))
 }
 exports.logout = (req, res) => {
@@ -67,22 +66,22 @@ exports.logout = (req, res) => {
         res.redirect('/')
     });
 }
-exports.redirectLogin=(req,res)=>{
-    console.log(req.session.username)
-    if(req.session.username){
-        console.log('got here')
-        db.Member.findOne({name:req.session.username}).then(user=>{
-            console.log('findone done')
-            console.log(user)
-            console.log(user.name)
-            console.log(req.session)
-            res.render('member', { title: 'MEMBERS', session: req.session, user: user })
-        })
+// exports.redirectLogin=(req,res)=>{
+//     console.log(req.session.username)
+//     if(req.session.username){
+//         console.log('got here')
+//         db.Member.findOne({name:req.session.username}).then(user=>{
+//             console.log('findone done')
+//             console.log(user)
+//             console.log(user.name)
+//             console.log(req.session)
+//             res.render('member', { title: 'MEMBERS', session: req.session, user: user })
+//         })
                 
-    }else{
-        console.log(err)
-    }
-}
+//     }else{
+//         console.log(err)
+//     }
+// }
 exports.change_password_form=(req,res)=>{
  res.render('Passwordform',{title:'ChangePassword'})
 }

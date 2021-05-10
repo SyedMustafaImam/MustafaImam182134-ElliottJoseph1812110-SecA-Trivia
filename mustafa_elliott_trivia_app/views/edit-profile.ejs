@@ -43,12 +43,12 @@
 				</md-toolbar>
 				<div layout-padding="">
 						<div></div>
-						<form method="POST" action="/edit-profile">
+						<form method="POST" action="/index/member/<%= session.userid %>/edit-profile">
 								
 								<div layout="row" layout-sm="column">
 										<md-input-container flex-gt-sm="">
 												<label>USERID</label>
-												<input ng-model="user.last_name" name="userid" placeholder="<%= user.userid %>" required type="text" ng-pattern="/^[a-zA-Z'. -]+$/" >
+												<input ng-model="user.last_name" name="userid" placeholder="<%= session.userid %>" required type="text" ng-pattern="/^[a-zA-Z'. -]+$/" >
 												<div ng-if="userForm.first_name.$dirty" ng-messages="userForm.first_name.$error" role="alert">
 														<div ng-message="required" class="my-message">First Name is Required.</div>
 														<div ng-message="pattern" class="my-message">Enter correct First Name.</div>
@@ -73,7 +73,7 @@
 										</md-radio-group>
 										<md-input-container flex-gt-sm="60">
 												<label>Address</label>
-												<input required type="text" step="any" name="address" placeholder="<%= user.address %>" />
+												<input required type="text" step="any" name="address" placeholder="<%= session.address %>" />
 												<div ng-if="userForm.age.$dirty" ng-messages="userForm.age.$error" role="alert" multiple>
 														<div ng-message="required">Address is Required.</div>
 														<div ng-message="min">Only Above 13 years Old are allowed.</div>
@@ -84,7 +84,7 @@
 								<div layout="row" layout-sm="column">
 										<md-input-container flex-gt-sm="">
 												<label>City</label>
-												<input required type="text" name="city" placeholder="<%= user.city %>" ng-pattern="/^[_a-z0-9-+]+(\.[_a-z0-9-+]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" />
+												<input required type="text" name="city" placeholder="<%= session.city %>" ng-pattern="/^[_a-z0-9-+]+(\.[_a-z0-9-+]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" />
 												<div ng-if="userForm.email.$dirty" ng-messages="userForm.email.$error" role="alert">
 														<div ng-message="required" class="my-message">City is Required.</div>
 														<div ng-message="pattern" class="my-message">Enter Correct City. </div>
