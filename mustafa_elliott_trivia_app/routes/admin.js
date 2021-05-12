@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var book_controller = require('../controllers/bookDashBoard.controller')
-
 /* GET home page. */
 router.get('/list-book',book_controller.book_list);
 router.get('/add-book', book_controller.getBookId, book_controller.addbook);

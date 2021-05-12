@@ -45,9 +45,11 @@ exports.addNewBook=function(req,res, next){
 
 
 exports.book_list=function(req,res){
-    Book.find(function(err, book){
-        res.render('list-book',{page:'Show All books', title:'list', book:book});
-    });
+    console.log('we got to admin part')
+    Book.find().then(book=>{
+            console.log(book)
+            res.render('list-books',{ books:book});
+    })
 };
 
 exports.book_delete=function(req,res){

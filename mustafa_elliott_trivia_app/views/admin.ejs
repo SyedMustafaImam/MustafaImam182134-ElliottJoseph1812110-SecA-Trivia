@@ -19,10 +19,9 @@
 
 
                 </div>
-                <div class="container">
+                <div id="profile" class="col 2s">
 
-                    <center>
-                        <div class="col 10s" style="padding-left: 100px;">
+                        <div style="padding-left: 100px;">
 
                             <h2 class="center-align">Profile Information</h2>
                             <hr>
@@ -33,45 +32,62 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <h5>Name</h5>
+                                                <h5>Name:</h5>
                                             </td>
                                             <td>
-                                                <%= session.name %>
-                                            </td>
+                                               <h5>
+                                                   <%= session.name %>
 
+                                               </h5> 
+                                            </td>
+                                            
                                         </tr>
                                         <tr>
-                                        <tr>
-                                            <td>
-                                                <h5>Gender</h5>
-                                            </td>
-                                            <td>
-                                                <%= session.Gender %>
-                                            </td>
+                                            <tr>
+                                                <td>
+                                                    <h5>Gender:</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>
 
+                                                        <%= session.Gender %>
+                                                    </h5> 
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h5>Address</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>
+
+                                                        <%= session.address %>
+                                                    </h5> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h5>City:</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>
+                                                        <%= session.city %>
+
+                                                    </h5> 
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h5>Address</h5>
+                                                <h5>Country:
+                                                </h5>
                                             </td>
                                             <td>
-                                                <%= session.address %>
+                                                <h5> 
+
+                                                    <%= session.country %>
+                                                </h5>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h5>City</h5>
-                                            </td>
-                                            <td>
-                                                <%= session.city %>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h5>Country</h5>
-                                            </td>
-                                            <td>
-                                                <%= session.country %></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -79,10 +95,14 @@
                             </div>
 
                         </div>
-                    </center>
+                       
+                    
 
                 </div>
+                
+                    <!-- <div id="tableofbook" class="col 2s">
 
+                    </div> -->
 
             </div>
 
@@ -92,12 +112,23 @@
             <%- include( './partials/footer.ejs' ) %>
 
         </footer>
-
+<!-- 
         <script type="text/javascript">
-        $(document).ready(function(){
-            alert('ajax is working')
-        })
-        </script>
+            $(document).ready(function () {
+                alert('ajax is working')
+                $('body').on('click', '#booklist', function () {
+                    $.ajax({
+                        url: "/admin/list-book"
+                    }).then(function (res) {
+                        console.log('we are here')
+                        $('#tableofbook').html(res)
+                        $('#tableofbook').show()
+                        $('#profile').hide()
+                        console.log(res)
+                    })
+                })
+            })
+        </script> -->
     </body>
 
 </html>

@@ -1,6 +1,16 @@
 const db = require('../models/index')
+var status=' ';
 exports.login_form = (req, res) => {
-    res.render('login', { title: "Login" })
+    console.log('before if state',status)
+    if(status==null){
+        console.log('if status',status)
+        res.render('login', { title: "Login", flag: status })
+    }else{
+        status = ' '
+        console.log('status',status)
+        res.render('login', { title: "Login", flag: status})
+    }
+    status=' ';
 }
 exports.loginchk = (req, res) => {
     console.log(req.body)
@@ -8,34 +18,38 @@ exports.loginchk = (req, res) => {
     console.log(userid, "/", password);
     try {
         db.Member.findOne({ userid: userid, password: password }, (err, user) => {
-            console.log("User", user)
-            // req.session.user= user;
-            // console.log("Session",req.session)
-            console.log(user.userid, "/", user.password)
-            if (user.userid === 'admin') {
-
-                console.log('admin here')
-                req.session.user = user;
-                console.log("Session", req.session.user)
-                console.log(req.session.userid, "/", req.session.password)
-                res.redirect('index/admin')
-            }
-            else if (user === null) {
-                res.end('User does not exist')
-            }
-            else if (user.userid === userid && user.password === password) {
-                console.log('got here to members')
-                req.session.user = user;
-                console.log("Session", req.session.user)
-                console.log(req.session.user.userid, "/", req.session.user.password)
-                res.redirect('index/member/' + req.session.user.userid)
+            if (user) {
+                console.log("User", user)
+                // req.session.user= user;
+                // console.log("Session",req.session)
+                console.log(user.userid, "/", user.password)
+                if (user.userid === 'admin') {
+                    status = ' '
+                    console.log('admin here')
+                    req.session.user = user;
+                    console.log("Session", req.session.user)
+                    console.log(req.session.userid, "/", req.session.password)
+                    res.redirect('index/admin')
+                }
+                else if (user === null) {
+                    res.end('User does not exist')
+                }
+                else if (user.userid === userid && user.password === password) {
+                    status = ' '
+                    console.log('got here to members')
+                    req.session.user = user;
+                    console.log("Session", req.session.user)
+                    console.log(req.session.user.userid, "/", req.session.user.password)
+                    res.redirect('index/member/' + req.session.user.userid)
+                } else {
+                    res.render('error');
+                }
             } else {
-                res.render('error');
-            }
-            if (err) {
-                console.log('got here')
+                console.log('got here user undefined')
                 console.log(err)
-                res.redirect("/")
+                console.log(user)
+                status = user;
+                res.redirect('/')
             }
         })
     } catch (err) {
@@ -95,12 +109,12 @@ exports.change_password_form = (req, res) => {
 exports.changed_password = (req, res) => {
     console.log(req.body)
     console.log(req.params.userid)
-    if (req.body.newpassword===req.body.confirmpassword) {
-        db.Member.findOneAndUpdate({ userid: req.params.userid, password: req.body.oldpassword }, { $set: { password:req.body.newpassword } }).then(user => {
+    if (req.body.newpassword === req.body.confirmpassword) {
+        db.Member.findOneAndUpdate({ userid: req.params.userid, password: req.body.oldpassword }, { $set: { password: req.body.newpassword } }).then(user => {
             console.log(user)
             res.redirect('/index/member/' + user.userid)
         })
-    }else{
+    } else {
         res.render('error')
     }
 

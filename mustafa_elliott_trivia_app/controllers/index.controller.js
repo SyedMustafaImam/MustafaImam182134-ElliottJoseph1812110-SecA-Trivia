@@ -3,14 +3,16 @@ exports.admin = (req, res) => {
 
     console.log("we got here")
     console.log(req.session)
+    console.log(req.session.user)
 
     if (req.session.user) {
+        console.log('we got to the admin part')
         res.render('admin', {
             title: "Admin",
             session: req.session.user,
         })
     } else {
-        res.render('error')
+        res.redirect('/')
     }
 
 }
