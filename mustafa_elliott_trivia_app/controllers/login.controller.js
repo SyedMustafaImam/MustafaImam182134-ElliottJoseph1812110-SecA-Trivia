@@ -2,6 +2,7 @@ const db = require('../models/index')
 var status=' ';
 exports.login_form = (req, res) => {
     console.log('before if state',status)
+    // console.log(req.session.user.userid)
     if(status==null){
         console.log('if status',status)
         res.render('login', { title: "Login", flag: status })

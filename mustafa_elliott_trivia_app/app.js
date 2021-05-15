@@ -35,7 +35,7 @@ app.use(session(
   saveUninitialized: false, //for login sessions set it to false, setting to true means store blank sessions
   resave: false, 
   cookie: {
-      expires: 600000 //or use maxAge ( takes in milliseconds value)
+      expires: 1800000 //or use maxAge ( takes in milliseconds value)
     }
   }
 )

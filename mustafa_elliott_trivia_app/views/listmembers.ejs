@@ -30,41 +30,42 @@
                             <table class='table table-striped table-responsive-md btm-table'>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                       
+                                        <th>UserID</th>
+                                        <th>Password</th>
                                         <th>Name</th>
-                                        <th>Author</th>
-                                        <th>Year</th>
-                                        <th>&nbsp;</th>
-                                        <th>&nbsp;</th>
-
+                                        <th>Gender</th>
+                                        <th>Address</th>
+                                        <th>City</th>
+                                        <th>Country</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% books.forEach(function(book){ %>
+                                    <% members.forEach(function(member){ %>
                                         <tr>
                                             <td>
-                                                <%= book.bookid %>
+                                                <%= member.userid %>
                                             </td>
                                             <td>
-                                                <%= book.name %>
+                                                <%= member.password %>
                                             </td>
                                             <td>
-                                                <%= book.author %>
+                                                <%= member.name %>
                                             </td>
                                             <td>
-                                                <%= book.year %>
+                                                <%= member.Gender %>
                                             </td>
-                                            <td><a href="/admin/update-book/<%= book._id%>"><button
-                                                        class="btn waves-effect waves-light" type="submit">Update book
-                                                        <i class="material-icons right">update</i>
-                                                    </button></a></td>
                                             <td>
-                                                <form action="/admin/delete/<%= book._id%>" method="POST"><button class="btn waves-effect waves-light" type="submit">DELETE
-                                                    <i class="material-icons right">DELETE</i>
-                                                </button></form>
+                                                <%= member.address %>
                                             </td>
-                                        </tr>
-                                        <% }); %>
+                                            <td>
+                                                <%= member.city %>
+                                            </td>
+                                            <td>
+                                                <%= member.country %>
+                                            </td>
+                                            <% }); %>
                                 </tbody>
                             </table>
                         </div>
