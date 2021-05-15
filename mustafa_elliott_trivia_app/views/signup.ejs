@@ -16,12 +16,11 @@
     <style>
         body {
 		background-color: #ffffff;
-		background-image: url(/images/bg4_2.png);
 }
 
 #SignupContent {
 		max-width: 600px;
-		backgroud-color: white;
+		
 		border-radius: 4px;
 }
 
@@ -34,6 +33,12 @@
 	}
 }
     </style>
+	<style>
+		.invalid {
+            position: relative;	
+			color: rgb(202, 52, 52);
+		}
+	</style>
 </head>
 <body>
     <div ng-controller="DemoCtrl" ng-cloak="" class="md-inline-form" ng-app="MyApp" layout="column" layout-sm="row" layout-align="center center" layout-align-sm="start start" layout-fill>
@@ -113,6 +118,13 @@
 								
 						</form>
 				</div>
+				<center>
+					<% if(!state) {%>
+						<div class="invalid">
+							Sorry But User of the Same User Id Already Exist
+						</div>
+						<% } %>
+					</center>
 		</md-content>
 </div>
 <footer>
